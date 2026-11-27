@@ -7,7 +7,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  static const String _versionA = 'Versión A';
+  static const String _versionB = 'Versión B con Cascada';
+
+  /// Unificación simétrica: conserva ambas propuestas en un solo widget.
+  static Text get versionUnificada {
+    final etiqueta = StringBuffer()
+      ..write(_versionA)
+      ..write(' + ')
+      ..write(_versionB);
+    return Text(etiqueta.toString());
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
